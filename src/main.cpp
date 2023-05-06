@@ -9,7 +9,7 @@ void setup() {
   pinMode(LS,INPUT);
   pinMode(MS,INPUT);
   pinMode(RS,INPUT);
-  lineHandle.initLogging();
+  lineHandle.initLogging(9600);
 }
 
 // Motor leftMotor(LF, LB, LE);
