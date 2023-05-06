@@ -27,7 +27,19 @@ void Line_follow::calculate_output_control(bool input1, bool input2, bool input3
     left_pwm = left_base_speed + output;
     right_pwm = right_base_speed - output;
     if (preErr!=Err) preErr = Err;
+    if (logging) log();
 }
 
+void Line_follow::initLogging(unsigned baudrate=9600) {
+    logging = true;
+    Serial.begin(baudrate);
+}
 
+void Line_follow::log() {
+    Serial.print(Err);
+    Serial.print("\t");
+    Serial.print(left_pwm);
+    Serial.print("\t");
+    Serial.println(right_pwm);    
+}
 
