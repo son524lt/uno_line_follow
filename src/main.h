@@ -1,24 +1,30 @@
 #ifndef _MAIN_H_
 #define _MAIN_H_
 
-#define RS A0
-#define MS A1
-#define LS A2
-#define RF 4
-#define RB 5
-#define LF 6
-#define LB 7
-#define RE 3
-#define LE 11
+// #define RS 3
+// #define MS 4
+// #define LS 12
+// #define RF 7
+// #define RB 6
+// #define LF 9
+// #define LB 8
+// #define RE 5
+// #define LE 10
 
 
-#define BASE_PWM 150
-#define KP 20
-#define KD 0.4
+#define RS A3
+#define MS A2
+#define LS A1
+#define RF 5
+#define RB 3
+#define LF 9
+#define LB 6
 
-// #define BASE_PWM 60
-// #define KP 5
-// #define KD 0.03
+#define LEFT_BASE_PWM 120
+#define RIGHT_BASE_PWM 160
+#define KP 25
+#define KI 0.00001
+#define KD 0.25
 
 
 #endif

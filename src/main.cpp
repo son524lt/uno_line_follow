@@ -11,17 +11,27 @@ void setup() {
   Serial.begin(9600);
 }
 
-Line_follow lineHandle(BASE_PWM, KP, KD);
-Motor leftMotor(LF, LB, LE);
-Motor rightMotor(RF, RB, RE);
+Line_follow lineHandle(LEFT_BASE_PWM, RIGHT_BASE_PWM, KP, KI, KD);
+// Motor leftMotor(LF, LB, LE);
+// Motor rightMotor(RF, RB, RE);
+
+Motor leftMotor(LF, LB);
+Motor rightMotor(RF, RB);
 
 void loop() {
-  lineHandle.calculate_output_control(digitalRead(RS),digitalRead(MS),digitalRead(LS));
-  Serial.print(lineHandle.Err);
-  Serial.print("\t");
-  Serial.print(lineHandle.left_pwm);
-  Serial.print("\t");
-  Serial.println(lineHandle.right_pwm);
+  // Serial.print(digitalRead(LS));
+  // Serial.print("\t");
+  // Serial.print(digitalRead(MS));
+  // Serial.print("\t");
+  // Serial.print(digitalRead(RS));
+  // Serial.print("\t");
+  lineHandle.calculate_output_control(digitalRead(LS),digitalRead(MS),digitalRead(RS));
+  // Serial.print(lineHandle.Err);
+  // Serial.print("\t");
+  // Serial.print(lineHandle.left_pwm);
+  // Serial.print("\t");
+  // Serial.println(lineHandle.right_pwm);
   leftMotor.Run(lineHandle.left_pwm);
   rightMotor.Run(lineHandle.right_pwm);
+  Serial.println();
 }
